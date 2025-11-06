@@ -1,1 +1,5 @@
-
+{
+  "project": "storefront",
+  "editUrlLabel": "Document Authoring",
+  "editUrlPattern": "https://da.live/edit#/anand091997/storefront{{pathname}}"
+}
