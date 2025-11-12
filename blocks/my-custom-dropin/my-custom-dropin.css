@@ -1,0 +1,20 @@
+.my-dropin-banner {
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+}
+.my-dropin-banner h3 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+.my-dropin-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background-color: #000;
+  border-radius: 5px;
+  text-decoration: none;
+}
