@@ -1,0 +1,23 @@
+.customer-segment-content {
+  position: relative;
+}
+
+.customer-segment-content .segment-hidden {
+  display: none !important;
+}
+
+
+.customer-segment-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.customer-segment-content .segment-debug {
+  font-family: monospace;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 16px;
+  background-color: #f9f9f9;
+  color: #333;
+}

@@ -1,0 +1,40 @@
+.alert-form {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.alert-form__form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.alert-form__label {
+  font-weight: 500;
+}
+
+.alert-form__input {
+  flex: 1 1 240px;
+  padding: 8px 10px;
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+}
+
+.alert-form__button {
+  padding: 8px 14px;
+  background: #1473e6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.alert-form__button:hover {
+  background: #0d66d0;
+}
+
+
+

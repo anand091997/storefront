@@ -175,6 +175,76 @@ export default async function decorate(block) {
   };
 
   const handlePlaceOrder = async ({ cartId, code }) => {
+    // Check for SnapPay validation (checkmo payment method - Check / Money Order)
+    if (code === 'checkmo') {
+      // Check if SnapPay card fields are visible and validate them
+      const cardFieldsContainer = document.querySelector('.checkout-snappay__card-fields');
+      if (cardFieldsContainer && cardFieldsContainer.offsetParent !== null) {
+        // Validate card fields
+        const cardNumberInput = document.querySelector('#snappay-card-number');
+        const expirationInput = document.querySelector('#snappay-expiration');
+        const cvvInput = document.querySelector('#snappay-cvv');
+
+        // Check if all fields are filled and valid
+        if (cardNumberInput && expirationInput && cvvInput) {
+          const cardNumber = cardNumberInput.value.replace(/\D/g, '');
+          const expiration = expirationInput.value.trim();
+          const cvv = cvvInput.value.replace(/\D/g, '');
+
+          // Validate card number (16 digits)
+          if (cardNumber.length !== 16) {
+            // eslint-disable-next-line no-console
+            console.error('[Checkout SnapPay] Card number validation failed');
+            return;
+          }
+
+          // Validate expiration (MM/YY format, future date)
+          const expMatch = expiration.match(/^(\d{2})\/(\d{2})$/);
+          if (!expMatch) {
+            // eslint-disable-next-line no-console
+            console.error('[Checkout SnapPay] Expiration date validation failed');
+            return;
+          }
+          const month = Number.parseInt(expMatch[1], 10);
+          const year = Number.parseInt(expMatch[2], 10);
+          if (month < 1 || month > 12) {
+            // eslint-disable-next-line no-console
+            console.error('[Checkout SnapPay] Invalid expiration month');
+            return;
+          }
+          const now = new Date();
+          const currentYear = now.getFullYear() % 100;
+          const currentMonth = now.getMonth() + 1;
+          if (year < currentYear || (year === currentYear && month < currentMonth)) {
+            // eslint-disable-next-line no-console
+            console.error('[Checkout SnapPay] Expiration date is in the past');
+            return;
+          }
+
+          // Validate CVV (3 digits)
+          if (cvv.length !== 3) {
+            // eslint-disable-next-line no-console
+            console.error('[Checkout SnapPay] CVV validation failed');
+            return;
+          }
+
+          // Check for interrupt checkout (card NOT ending with 5454)
+          if (!cardNumber.endsWith('5454')) {
+            // Interrupt checkout - alert already shown by checkout-snappay module
+            // eslint-disable-next-line no-console
+            console.log('[Checkout SnapPay] Interrupt checkout detected - order placement prevented');
+            return;
+          }
+          // Card ending with 5454 - allow order placement to proceed
+        } else {
+          // Fields not found - validation should have been done by checkout-snappay module
+          // eslint-disable-next-line no-console
+          console.warn('[Checkout SnapPay] Card fields not found - validation may have failed');
+          return;
+        }
+      }
+    }
+
     await displayOverlaySpinner(loaderRef, $loader);
     try {
       // Payment Services credit card

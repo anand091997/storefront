@@ -1,0 +1,131 @@
+.cort-contact-form {
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  max-width: 100%;
+}
+
+.cort-contact-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cort-contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cort-contact-form__label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.cort-contact-form__required {
+  color: #d32f2f;
+  margin-left: 2px;
+}
+
+.cort-contact-form__input {
+  padding: 10px 12px;
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.cort-contact-form__input:focus {
+  outline: none;
+  border-color: #1473e6;
+  box-shadow: 0 0 0 2px rgb(20 115 230 / 10%);
+}
+
+.cort-contact-form__input--error {
+  border-color: #d32f2f;
+}
+
+.cort-contact-form__input--error:focus {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 2px rgb(211 47 47 / 10%);
+}
+
+.cort-contact-form__input[type="textarea"],
+.cort-contact-form__input[rows] {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.cort-contact-form__error {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: -4px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease, max-height 0.2s ease, margin-top 0.2s ease;
+}
+
+.cort-contact-form__error--visible {
+  opacity: 1;
+  max-height: 50px;
+  margin-top: 4px;
+}
+
+.cort-contact-form__button-wrapper {
+  margin-top: 8px;
+}
+
+.cort-contact-form__button {
+  padding: 12px 24px;
+  background: #1473e6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cort-contact-form__button:hover {
+  background: #0d66d0;
+}
+
+.cort-contact-form__button:active {
+  background: #0a5bb8;
+}
+
+.cort-contact-form__button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.cort-contact-form__success {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cort-contact-form__success--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .cort-contact-form {
+    padding: 32px;
+  }
+}
+

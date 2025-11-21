@@ -1,0 +1,273 @@
+.checkout-snappay__card-fields {
+  margin-top: 16px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  clear: both;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  grid-column: 1 / -1;
+}
+
+/* When card fields are inside toggle button, ensure proper layout */
+.dropin-toggle-button .checkout-snappay__card-fields {
+  margin-top: 12px;
+  width: 100%;
+  display: block;
+}
+
+/* Ensure toggle button displays title and radio button at top when card fields are inside */
+.checkout-payment-methods__methods
+  .dropin-toggle-button:has(.checkout-snappay__card-fields) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Create a wrapper for radio button and title to keep them together at top */
+.checkout-payment-methods__methods
+  .dropin-toggle-button:has(.checkout-snappay__card-fields)
+  > *:not(.checkout-snappay__card-fields) {
+  order: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Ensure proper alignment within payment methods grid - less specific first */
+.checkout-payment-methods__methods .checkout-snappay__card-fields {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+}
+
+/* When inside payment method content area - less specific */
+.checkout-payment-methods__content .checkout-snappay__card-fields {
+  margin-top: 16px;
+}
+
+/* Make sure card fields span full width in grid - more specific (child combinator) */
+.checkout-payment-methods__methods > .checkout-snappay__card-fields {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+/* Card fields should appear after title/radio button - most specific (with :has()) */
+.checkout-payment-methods__methods
+  .dropin-toggle-button:has(.checkout-snappay__card-fields)
+  .checkout-snappay__card-fields {
+  order: 1;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.checkout-snappay__field-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-snappay__field-group:last-child {
+  margin-bottom: 0;
+}
+
+.checkout-snappay__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.4;
+}
+
+.checkout-snappay__input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.checkout-snappay__input:focus {
+  outline: none;
+  border-color: #1473e6;
+  box-shadow: 0 0 0 3px rgb(20 115 230 / 10%);
+}
+
+.checkout-snappay__input--error {
+  border-color: #d32f2f;
+}
+
+.checkout-snappay__input--error:focus {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 3px rgb(211 47 47 / 10%);
+}
+
+.checkout-snappay__error {
+  margin-top: 6px;
+  padding: 6px 8px;
+  background: #ffebee;
+  color: #d32f2f;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Ensure card fields don't break payment method grid layout */
+.checkout-payment-methods__methods {
+  position: relative;
+}
+
+/* Override radio button positioning for SnapPay payment method */
+.checkout-payment-methods__methods
+  .dropin-toggle-button:has(input[value="checkmo"])
+  .dropin-toggle-button__radioButton.dropin-radio-button {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+/* Modal popup styles */
+.checkout-snappay__modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fade-in 0.2s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.checkout-snappay__modal {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.checkout-snappay__modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  z-index: 1;
+}
+
+.checkout-snappay__modal-close:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.checkout-snappay__modal-close:focus {
+  outline: 2px solid #1473e6;
+  outline-offset: 2px;
+}
+
+.checkout-snappay__modal-content {
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.checkout-snappay__modal-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff3cd;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.checkout-snappay__modal-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #856404;
+}
+
+.checkout-snappay__modal-message {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .checkout-snappay__card-fields {
+    padding: 16px;
+  }
+
+  .checkout-snappay__field-group {
+    margin-bottom: 16px;
+  }
+
+  .checkout-snappay__modal {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .checkout-snappay__modal-content {
+    padding: 24px 20px 20px;
+  }
+
+  .checkout-snappay__modal-message {
+    font-size: 14px;
+  }
+}
+
