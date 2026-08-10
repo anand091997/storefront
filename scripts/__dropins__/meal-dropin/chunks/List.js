@@ -1,0 +1,4 @@
+/*! Copyright 2026 Adobe
+All Rights Reserved. */
+import*as e from"@dropins/tools/preact-compat.js";const t=r=>e.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...r},e.createElement("rect",{x:4.89282,y:2.75,width:14.2143,height:18.5,rx:2.25,stroke:"currentColor",strokeWidth:1}),e.createElement("line",{x1:9.85718,y1:7.67871,x2:16.2857,y2:7.67871,stroke:"currentColor",strokeWidth:1}),e.createElement("line",{x1:9.85718,y1:11.9644,x2:16.2857,y2:11.9644,stroke:"currentColor",strokeWidth:1}),e.createElement("line",{x1:9.85718,y1:16.25,x2:16.2857,y2:16.25,stroke:"currentColor",strokeWidth:1}),e.createElement("circle",{cx:7.71429,cy:7.71429,r:.714286,fill:"currentColor"}),e.createElement("circle",{cx:7.71429,cy:11.9999,r:.714286,fill:"currentColor"}),e.createElement("circle",{cx:7.71429,cy:16.2856,r:.714286,fill:"currentColor"}));export{t as default};
+//# sourceMappingURL=List.js.map

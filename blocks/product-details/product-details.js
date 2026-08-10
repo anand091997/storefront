@@ -181,6 +181,9 @@ export default async function decorate(block) {
       imageParams: {
         ...IMAGES_SIZES,
       },
+      zoom: {
+        closeButton: true,
+      },
 
       slots: gallerySlots,
     })($gallery),

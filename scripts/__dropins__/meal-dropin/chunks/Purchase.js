@@ -1,0 +1,4 @@
+/*! Copyright 2026 Adobe
+All Rights Reserved. */
+import*as e from"@dropins/tools/preact-compat.js";const r=t=>e.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...t},e.createElement("rect",{x:4.89282,y:2.75,width:14.2143,height:18.5,rx:2.25,stroke:"currentColor",strokeWidth:1}),e.createElement("line",{x1:8,y1:18.25,x2:16,y2:18.25,stroke:"currentColor",strokeWidth:1}),e.createElement("line",{x1:8,y1:15.25,x2:16,y2:15.25,stroke:"currentColor",strokeWidth:1}),e.createElement("path",{d:"M8.57129 5.57129H9.54399L10.0521 10.2547H15.4238L15.7141 7.57847L9.6892 6.90941",stroke:"currentColor",strokeWidth:1,strokeLinecap:"round",strokeLinejoin:"round"}),e.createElement("circle",{cx:10.0356,cy:12.0356,r:.375,stroke:"currentColor",strokeWidth:.75}),e.createElement("circle",{cx:15.0356,cy:12.0356,r:.375,stroke:"currentColor",strokeWidth:.75}));export{r as default};
+//# sourceMappingURL=Purchase.js.map
